@@ -1,0 +1,14 @@
+{
+  "repo": "united-arab-emirates-university",
+  "feeds": [
+    {
+      "source": "https://www.uaeu.ac.ae/en/",
+      "feed_url": "https://www.uaeu.ac.ae/en/news/",
+      "title": "UAEU News",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-06-03T00:00:00Z"
+}

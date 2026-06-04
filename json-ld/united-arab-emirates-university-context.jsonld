@@ -1,0 +1,56 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "uaeu": "https://www.uaeu.ac.ae/en/#",
+    "oai": "http://www.openarchives.org/OAI/2.0/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "ckan": "https://opendata.fcsc.gov.ae/api/3/action/#",
+    "name": "name",
+    "url": "url",
+    "description": "description",
+    "CollegeOrUniversity": "CollegeOrUniversity",
+    "institution": {
+      "@id": "uaeu:institution",
+      "@type": "CollegeOrUniversity"
+    },
+    "repository": {
+      "@id": "oai:repository",
+      "@type": "DataCatalog"
+    },
+    "repositoryName": "oai:repositoryName",
+    "record": {
+      "@id": "oai:record",
+      "@type": "CreativeWork"
+    },
+    "identifier": "dc:identifier",
+    "title": "dc:title",
+    "creator": "dc:creator",
+    "subject": "dc:subject",
+    "date": "dc:date",
+    "type": "dc:type",
+    "dataset": {
+      "@id": "ckan:package",
+      "@type": "Dataset"
+    },
+    "datasetTitle": "ckan:title",
+    "datasetNotes": "ckan:notes",
+    "organization": {
+      "@id": "ckan:organization",
+      "@type": "Organization"
+    },
+    "resource": {
+      "@id": "ckan:resource",
+      "@type": "DataDownload"
+    }
+  },
+  "@type": "CollegeOrUniversity",
+  "@id": "https://www.uaeu.ac.ae/en/",
+  "name": "United Arab Emirates University",
+  "url": "https://www.uaeu.ac.ae/en/",
+  "description": "Public research university in Al Ain, United Arab Emirates. Exposes a standards-based OAI-PMH 2.0 metadata harvesting endpoint via Scholarworks@UAEU and publishes open datasets through the UAE national open data portal (CKAN).",
+  "sameAs": [
+    "https://www.linkedin.com/school/united-arab-emirates-university/",
+    "https://github.com/uitsws",
+    "https://research.uaeu.ac.ae/"
+  ]
+}
