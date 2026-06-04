@@ -1,0 +1,90 @@
+---
+aid: united-arab-emirates-university
+name: United Arab Emirates University
+description: >-
+  United Arab Emirates University (UAEU) is a public research university in Al Ain,
+  United Arab Emirates, ranked #262 in the QS World University Rankings 2025. Its
+  public, machine-readable developer footprint is limited and oriented toward
+  research and open data rather than a formal developer program: the UAEU Library
+  operates Scholarworks@UAEU, a bepress Digital Commons institutional repository
+  that exposes a standards-based OAI-PMH 2.0 metadata harvesting endpoint, and UAEU
+  publishes open datasets through the UAE national open data portal (FCSC), which is
+  built on CKAN and offers a CKAN Action API. UAEU's Division of Information
+  Technology maintains a GitHub organization (uitsws / UAEU-DOIT), but it currently
+  has no public repositories. No general-purpose, self-service public developer
+  portal or documented student-information / catalog API was found.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/united-arab-emirates-university/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Research
+  - Open Data
+  - Institutional Repository
+  - OAI-PMH
+  - CKAN
+  - United Arab Emirates
+  - Middle East
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: united-arab-emirates-university:scholarworks-oai-pmh
+    name: Scholarworks@UAEU OAI-PMH Repository API
+    description: >-
+      OAI-PMH 2.0 metadata harvesting endpoint for Scholarworks@UAEU, the
+      university's open-access institutional repository built on the bepress
+      Digital Commons platform. The endpoint supports standard OAI-PMH verbs
+      (Identify, ListRecords, ListSets, GetRecord, ListMetadataFormats) and was
+      verified live returning valid OAI-PMH XML with repositoryName
+      "Scholarworks@UAEU".
+    humanURL: https://scholarworks.uaeu.ac.ae/
+    baseURL: https://scholarworks.uaeu.ac.ae/do/oai/
+    tags: [ Institutional Repository, OAI-PMH, Open Access, Research, Digital Commons, Library ]
+    properties:
+      - type: Documentation
+        url: https://scholarworks.uaeu.ac.ae/about.html
+      - type: Authentication
+        url: https://scholarworks.uaeu.ac.ae/do/oai/?verb=Identify
+  - aid: united-arab-emirates-university:fcsc-open-data
+    name: UAEU Open Data on UAE National Portal (CKAN)
+    description: >-
+      UAEU publishes open datasets (e.g. UAEU granted patents and digital
+      transaction reports) as an organization on the UAE national open data
+      portal operated by the Federal Competitiveness and Statistics Centre
+      (FCSC). The portal is built on CKAN and exposes the standard CKAN Action
+      API; programmatic access from scripts is protected by Cloudflare bot
+      mitigation, so a browser session or API arrangement may be required.
+    humanURL: https://opendata.fcsc.gov.ae/@united-arab-emirates-university-uaeu
+    baseURL: https://opendata.fcsc.gov.ae/api/3/action/
+    tags: [ Open Data, CKAN, Datasets, Government, Research ]
+    properties:
+      - type: Documentation
+        url: https://opendata.fcsc.gov.ae/@united-arab-emirates-university-uaeu
+common:
+  - type: Website
+    url: https://www.uaeu.ac.ae/en/
+  - type: GitHub
+    url: https://github.com/uitsws
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/united-arab-emirates-university/
+  - type: Library
+    url: https://www.uaeu.ac.ae/en/library/
+  - type: Research
+    url: https://research.uaeu.ac.ae/
+  - type: Plans
+    url: plans/united-arab-emirates-university-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/united-arab-emirates-university-rate-limits.yml
+  - type: FinOps
+    url: finops/united-arab-emirates-university-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+---

@@ -1,0 +1,52 @@
+---
+name: United Arab Emirates University
+description: United Arab Emirates University public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/united-arab-emirates-university/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 2
+    summary: >-
+      UAEU has a modest but real public, machine-readable footprint rather than a
+      formal developer program. The Scholarworks@UAEU OAI-PMH 2.0 endpoint was
+      verified live, returning valid OAI-PMH XML (repositoryName
+      "Scholarworks@UAEU", Digital Commons / bepress platform). UAEU also publishes
+      open datasets as an organization on the UAE national open data portal (FCSC),
+      a CKAN platform with an Action API, though scripted API calls are blocked by
+      Cloudflare bot mitigation (403). The UAEU Division of IT GitHub org (uitsws)
+      exists but has zero public repositories. No self-service developer portal,
+      documented SIS/catalog/timetable API, or public mobile-app backend was found.
+      All endpoints below were probed directly; no endpoints were fabricated.
+    endpoints:
+      - url: https://scholarworks.uaeu.ac.ae/do/oai/?verb=Identify
+        status: 200
+        note: Live OAI-PMH 2.0 Identify response; valid XML, repositoryName "Scholarworks@UAEU".
+      - url: https://scholarworks.uaeu.ac.ae/
+        status: 200
+        note: Institutional repository home (bepress Digital Commons).
+      - url: https://opendata.fcsc.gov.ae/@united-arab-emirates-university-uaeu
+        status: 200
+        note: UAEU organization page on UAE national open data portal (CKAN/FCSC).
+      - url: https://opendata.fcsc.gov.ae/api/3/action/organization_list
+        status: 403
+        note: CKAN Action API exists but scripted requests blocked by Cloudflare bot mitigation.
+      - url: https://github.com/uitsws
+        status: 200
+        note: UAEU-DOIT (Division of IT) GitHub org; zero public repositories.
+      - url: https://www.uaeu.ac.ae/en/
+        status: 200
+        note: Official university website.
+      - url: https://research.uaeu.ac.ae/
+        status: 200
+        note: Research portal.
+      - url: https://www.uaeu.ac.ae/en/library/
+        status: 200
+        note: UAEU Libraries home.
+      - url: https://my.uaeu.ac.ae/
+        status: 200
+        note: Student/staff SSO login portal; gated, no public API docs.
+      - url: https://www.linkedin.com/school/united-arab-emirates-university/
+        status: 999
+        note: LinkedIn school page exists; 999 is LinkedIn anti-bot, not a real outage.
+---
