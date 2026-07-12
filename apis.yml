@@ -66,6 +66,8 @@ apis:
       - type: Documentation
         url: https://opendata.fcsc.gov.ae/@united-arab-emirates-university-uaeu
 common:
+  - type: DomainSecurity
+    url: security/united-arab-emirates-university-domain-security.yml
   - type: Website
     url: https://www.uaeu.ac.ae/en/
   - type: GitHub
