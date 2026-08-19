@@ -43,7 +43,7 @@ tags:
   - Middle East
 created: '2026-06-03'
 modified: '2026-06-03'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - aid: united-arab-emirates-university:scholarworks-oai-pmh
     name: Scholarworks@UAEU OAI-PMH Repository API
