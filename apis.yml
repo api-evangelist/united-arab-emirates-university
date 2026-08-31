@@ -1,18 +1,28 @@
 ---
 aid: united-arab-emirates-university
 name: United Arab Emirates University
+x-type: university
+x-category: Public Research University
 description: >-
-  United Arab Emirates University (UAEU) is a public research university in Al Ain,
-  United Arab Emirates, ranked #262 in the QS World University Rankings 2025. Its
-  public, machine-readable developer footprint is limited and oriented toward
-  research and open data rather than a formal developer program: the UAEU Library
-  operates Scholarworks@UAEU, a bepress Digital Commons institutional repository
-  that exposes a standards-based OAI-PMH 2.0 metadata harvesting endpoint, and UAEU
-  publishes open datasets through the UAE national open data portal (FCSC), which is
-  built on CKAN and offers a CKAN Action API. UAEU's Division of Information
-  Technology maintains a GitHub organization (uitsws / UAEU-DOIT), but it currently
-  has no public repositories. No general-purpose, self-service public developer
-  portal or documented student-information / catalog API was found.
+  United Arab Emirates University (UAEU) is the UAE's national public research
+  university, founded 1976 in Al Ain, Abu Dhabi. Its machine-readable footprint
+  is small, and almost all of what appears under its name is a vendor's contract
+  running on a UAEU-branded host. Exactly one surface is institution-operated:
+  the UAEU enterprise identity service at eisprod.uaeu.ac.ae, a WSO2 Identity
+  Server deployment on the university's own domain and certificate, which serves
+  unauthenticated OpenID Connect discovery, SAML 2.0 IdP metadata and a SCIM 2.0
+  ServiceProviderConfig. Everything else is a tenancy. Scholarworks@UAEU
+  (scholarworks.uaeu.ac.ae) answers OAI-PMH 2.0 but CNAMEs to dcuaeu.bepress.com
+  and reports adminEmail dc-support@elsevier.com — bepress Digital Commons.
+  research.uaeu.ac.ae CNAMEs to uaeu.elsevierpure.com and serves a complete
+  827-path Elsevier "Pure API" OpenAPI at /ws/api/openapi.json; that contract is
+  Elsevier's and is deliberately NOT saved in this repository. The LMS is a
+  Blackboard tenant, library discovery is OCLC WorldCat, and UAEU's open data is
+  published as an organization account on the UAE federal portal rather than on
+  its own infrastructure. UAEU does hold its own DataCite provider account
+  (MIWJ) and Crossref membership (prefix 10.36771). There is no public developer
+  portal, no self-service API program, no UAEU-authored OpenAPI, and no agent
+  surface — every well-known path probed returns the site's soft-404 page.
 type: Index
 deliveryModel:
   model: saas
@@ -42,65 +52,205 @@ access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/united-arab-emirates-university.png
 url: https://raw.githubusercontent.com/api-evangelist/united-arab-emirates-university/refs/heads/main/apis.yml
 tags:
-  - Education
-  - Higher Education
   - University
-  - Research
-  - Open Data
-  - Institutional Repository
-  - OAI-PMH
-  - CKAN
+  - Higher Education
+  - Education
   - United Arab Emirates
   - Middle East
+  - Public Research University
+  - Identity Federation
+  - Research Repository
+  - Open Data
+  - OAI-PMH
+  - SCIM
+  - SAML
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 specificationVersion: '0.23'
+x-coverage:
+  state: none
+  reason: no_public_api
+  detail: >-
+    UAEU operates no public API program — no developer portal, no API key
+    self-service, no UAEU-authored OpenAPI, and no agent surface. What machine
+    readability exists falls into two buckets, neither of which is an API
+    product. First, three standards-mandated discovery documents on the
+    university's own identity service (eisprod.uaeu.ac.ae): OIDC discovery,
+    SAML 2.0 IdP metadata and a SCIM 2.0 ServiceProviderConfig, all 200
+    unauthenticated. These are saved as artifacts and are the only
+    institution-operated machine-readable surface found. Second, a stack of
+    vendor tenancies — bepress Digital Commons, Elsevier Pure, Blackboard, OCLC
+    WorldCat, Springshare LibGuides, Ellucian Banner, and an organization
+    account on the UAE federal open data portal. The Pure deployment publishes a
+    complete Elsevier OpenAPI without authentication; it was found, read and
+    deliberately not saved, because the contract is Elsevier's. Every agent and
+    API well-known path on www.uaeu.ac.ae (llms.txt, ai.txt, apis.json,
+    openapi.json, .well-known/agent.json, .well-known/mcp.json,
+    .well-known/ai-plugin.json, .well-known/security.txt) returns HTTP 200 with
+    the site's ~112KB HTML 404 page — soft-404s, credited to nothing.
+  evidence:
+    - url: https://eisprod.uaeu.ac.ae/oauth2/oidcdiscovery/.well-known/openid-configuration
+      status: 200
+    - url: https://eisprod.uaeu.ac.ae/identity/metadata/saml2
+      status: 200
+    - url: https://eisprod.uaeu.ac.ae/scim2/ServiceProviderConfig
+      status: 200
+    - url: https://scholarworks.uaeu.ac.ae/do/oai/?verb=Identify
+      status: 200
+    - url: https://research.uaeu.ac.ae/ws/api/openapi.json
+      status: 200
+    - url: https://research.uaeu.ac.ae/ws/api/524/persons
+      status: 401
+    - url: https://opendata.fcsc.gov.ae/api/3/action/package_search?q=uaeu
+      status: 403
+    - url: https://www.uaeu.ac.ae/llms.txt
+      status: 200
+    - url: https://www.uaeu.ac.ae/.well-known/agent.json
+      status: 200
+    - url: https://api.github.com/orgs/uitsws/repos
+      status: 200
 apis:
+  - aid: united-arab-emirates-university:uaeu-identity-service
+    name: UAEU Enterprise Identity Service (OIDC / SAML 2.0 / SCIM 2.0)
+    x-operator: institution
+    description: >-
+      The university's own single sign-on service, running on UAEU's registrable
+      domain under a certificate issued to *.uaeu.ac.ae. It is the login point
+      for UAEU applications — Banner Self-Service at ssb.uaeu.ac.ae redirects
+      into it — and it publishes three unauthenticated discovery documents:
+      OpenID Connect configuration (issuer eisprod.uaeu.ac.ae:9443), SAML 2.0
+      IdP metadata (entityID eisprod.uaeu.ac.ae) and a SCIM 2.0
+      ServiceProviderConfig declaring patch, filter and bulk support. Ten OAuth
+      scopes and twenty-nine OIDC claims are advertised. All operational
+      endpoints require a registered client; dynamic client registration is
+      advertised but has no public onboarding path. This is institutional
+      plumbing, not an API product, and it is recorded as such.
+    humanURL: https://www.uaeu.ac.ae/en/vc/doit/
+    baseURL: https://eisprod.uaeu.ac.ae/
+    tags: [ Identity, Single Sign-On, OpenID Connect, SAML, SCIM, Authentication ]
+    properties:
+      - type: Authentication
+        url: authentication/united-arab-emirates-university-authentication.yml
+      - type: Scopes
+        url: scopes/united-arab-emirates-university-scopes.yml
+      - type: Conformance
+        url: conformance/united-arab-emirates-university-domain-standards.yml
+      - type: OpenIDConnectDiscovery
+        url: https://eisprod.uaeu.ac.ae/oauth2/oidcdiscovery/.well-known/openid-configuration
+      - type: IdentityFederation
+        url: https://eisprod.uaeu.ac.ae/identity/metadata/saml2
   - aid: united-arab-emirates-university:scholarworks-oai-pmh
-    name: Scholarworks@UAEU OAI-PMH Repository API
+    name: Scholarworks@UAEU OAI-PMH Repository Endpoint
+    x-operator: tenant
     description: >-
       OAI-PMH 2.0 metadata harvesting endpoint for Scholarworks@UAEU, the
-      university's open-access institutional repository built on the bepress
-      Digital Commons platform. The endpoint supports standard OAI-PMH verbs
-      (Identify, ListRecords, ListSets, GetRecord, ListMetadataFormats) and was
-      verified live returning valid OAI-PMH XML with repositoryName
-      "Scholarworks@UAEU".
+      university's open-access institutional repository. Verified live returning
+      valid OAI-PMH XML with repositoryName "Scholarworks@UAEU",
+      repositoryIdentifier scholarworks.uaeu.ac.ae, earliestDatestamp
+      2000-01-19, and five metadata prefixes. TENANT, NOT INSTITUTION:
+      scholarworks.uaeu.ac.ae is a CNAME to dcuaeu.bepress.com and the Identify
+      response reports adminEmail dc-support@elsevier.com. The repository, its
+      content, its sets and its DataCite DOIs are UAEU's; the OAI-PMH
+      implementation is bepress Digital Commons, an Elsevier product. No bepress
+      contract is saved under this institution.
     humanURL: https://scholarworks.uaeu.ac.ae/
     baseURL: https://scholarworks.uaeu.ac.ae/do/oai/
     tags: [ Institutional Repository, OAI-PMH, Open Access, Research, Digital Commons, Library ]
+    x-vendor: bepress Digital Commons (Elsevier)
+    x-vendor-evidence: 'CNAME dcuaeu.bepress.com; OAI Identify adminEmail dc-support@elsevier.com'
     properties:
       - type: Documentation
         url: https://scholarworks.uaeu.ac.ae/about.html
-      - type: Authentication
+      - type: APIReference
         url: https://scholarworks.uaeu.ac.ae/do/oai/?verb=Identify
-  - aid: united-arab-emirates-university:fcsc-open-data
-    name: UAEU Open Data on UAE National Portal (CKAN)
+  - aid: united-arab-emirates-university:pure-research-portal
+    name: UAEU Research Portal (Elsevier Pure) — tenant deployment
+    x-operator: tenant
     description: >-
-      UAEU publishes open datasets (e.g. UAEU granted patents and digital
-      transaction reports) as an organization on the UAE national open data
-      portal operated by the Federal Competitiveness and Statistics Centre
-      (FCSC). The portal is built on CKAN and exposes the standard CKAN Action
-      API; programmatic access from scripts is protected by Cloudflare bot
-      mitigation, so a browser session or API arrangement may be required.
-    humanURL: https://opendata.fcsc.gov.ae/@united-arab-emirates-university-uaeu
-    baseURL: https://opendata.fcsc.gov.ae/api/3/action/
-    tags: [ Open Data, CKAN, Datasets, Government, Research ]
+      UAEU's research information system and public research portal, at
+      research.uaeu.ac.ae, which CNAMEs to uaeu.elsevierpure.com. The deployment
+      serves a complete OpenAPI 3.0.1 document at /ws/api/openapi.json without
+      authentication — 827 paths, info.title "Pure API", version 5.36.2-1,
+      info.contact.email pure-support@elsevier.com, and servers[] of "/ws/api"
+      (relative, so a host-based ownership check is blind to it — the exact
+      hostless class that caused Manchester's 36 Pure specs to be misattributed).
+      THE CONTRACT IS ELSEVIER'S AND IS NOT SAVED IN THIS REPOSITORY. What is
+      recorded here is the relationship: UAEU is a Pure customer whose research
+      data is exposed through Elsevier's contract. All data endpoints return 401
+      without an api-key header.
+    humanURL: https://research.uaeu.ac.ae/
+    baseURL: https://research.uaeu.ac.ae/ws/api
+    tags: [ Research Information, CRIS, Elsevier Pure, Research Repository ]
+    x-vendor: Elsevier Pure
+    x-vendor-evidence: 'CNAME uaeu.elsevierpure.com; info.title "Pure API"; info.contact.email pure-support@elsevier.com; servers[] "/ws/api"'
+    x-do-not-save: >-
+      The OpenAPI at research.uaeu.ac.ae/ws/api/openapi.json is Elsevier's
+      product contract. Saving it under this institution is the exact
+      misattribution the university pipeline exists to prevent.
     properties:
       - type: Documentation
-        url: https://opendata.fcsc.gov.ae/@united-arab-emirates-university-uaeu
+        url: https://research.uaeu.ac.ae/
+  - aid: united-arab-emirates-university:fcsc-open-data
+    name: UAEU Open Data on the UAE Federal Open Data Portal (CKAN)
+    x-operator: tenant
+    description: >-
+      UAEU publishes open datasets as an organization account on the UAE federal
+      open data portal operated by the Federal Competitiveness and Statistics
+      Centre, built on CKAN. The operator is the UAE federal government, not the
+      university; UAEU holds an account on it. Every programmatic probe of the
+      CKAN Action API returns HTTP 403 behind Cloudflare bot mitigation, with a
+      browser User-Agent as well as without, so the endpoint is bot-blocked
+      rather than dead. UAEU's own open data pages link to the national
+      bayanat.ae portal, which is reachable. UAEU operates no CKAN, Socrata or
+      other open data portal of its own.
+    humanURL: https://www.uaeu.ac.ae/en/open-data/
+    baseURL: https://opendata.fcsc.gov.ae/api/3/action/
+    tags: [ Open Data, CKAN, Datasets, Government, Research ]
+    x-vendor: UAE Federal Competitiveness and Statistics Centre (FCSC)
+    x-vendor-evidence: 'host opendata.fcsc.gov.ae is a UAE federal government portal shared by all national organizations'
+    x-probe-status: 403
+    properties:
+      - type: Documentation
+        url: https://www.uaeu.ac.ae/en/open-data/uaeu-open-data-policy.shtml
+      - type: OpenData
+        url: https://bayanat.ae/en/Datasets?entity=bqLbsntKAtMpaPDNRxEFaklu-jeZNTuoyik5Y4xeZNA
 common:
-  - type: DomainSecurity
-    url: security/united-arab-emirates-university-domain-security.yml
   - type: Website
     url: https://www.uaeu.ac.ae/en/
-  - type: GitHub
+  - type: GitHubOrganization
     url: https://github.com/uitsws
   - type: LinkedIn
     url: https://www.linkedin.com/school/united-arab-emirates-university/
+  - type: TermsOfService
+    url: https://www.uaeu.ac.ae/en/website/terms_of_use.shtml
+  - type: PrivacyPolicy
+    url: https://www.uaeu.ac.ae/en/website/privacy_policy.shtml
+  - type: Blog
+    url: https://www.uaeu.ac.ae/en/news/
+  - type: IdentityFederation
+    url: https://eisprod.uaeu.ac.ae/identity/metadata/saml2
+  - type: ResearchRepository
+    url: https://scholarworks.uaeu.ac.ae/
+  - type: LibraryCatalog
+    url: https://uaeu.on.worldcat.org/discovery
+  - type: CourseCatalog
+    url: https://www.uaeu.ac.ae/en/catalog/
+  - type: OpenData
+    url: https://www.uaeu.ac.ae/en/open-data/
+  - type: AIPolicy
+    url: https://www.uaeu.ac.ae/en/about/pdfs/policies-2025/generative-ai-policy.pdf
   - type: Library
     url: https://www.uaeu.ac.ae/en/library/
   - type: Research
     url: https://research.uaeu.ac.ae/
+  - type: Authentication
+    url: authentication/united-arab-emirates-university-authentication.yml
+  - type: Scopes
+    url: scopes/united-arab-emirates-university-scopes.yml
+  - type: Conformance
+    url: conformance/united-arab-emirates-university-domain-standards.yml
+  - type: DomainSecurity
+    url: security/united-arab-emirates-university-domain-security.yml
   - type: Plans
     url: plans/united-arab-emirates-university-plans-pricing.yml
   - type: RateLimits
@@ -109,6 +259,12 @@ common:
     url: finops/united-arab-emirates-university-finops.yml
   - type: Review
     url: review.yml
+x-identifiers:
+  ror: https://ror.org/01km6p862
+  datacite_provider: MIWJ
+  datacite_repository: miwj.klmvdh
+  crossref_member: '22532'
+  crossref_prefix: '10.36771'
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

@@ -2,14 +2,20 @@
   "repo": "united-arab-emirates-university",
   "feeds": [
     {
-      "source": "https://www.uaeu.ac.ae/en/",
+      "source": "https://www.uaeu.ac.ae/en/news/",
       "feed_url": "https://www.uaeu.ac.ae/en/news/",
-      "title": "UAEU News",
+      "title": "",
       "saved": 0,
-      "method": "none",
-      "error": "parse_failed"
+      "method": "none"
+    },
+    {
+      "source": "https://www.uaeu.ac.ae/en/website/privacy_policy.shtml",
+      "feed_url": "https://www.uaeu.ac.ae/en/website/privacy_policy.shtml",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-08-22T20:08:02Z"
+  "fetched": "2026-08-30T22:33:40Z"
 }
