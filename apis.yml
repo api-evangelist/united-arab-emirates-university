@@ -47,7 +47,7 @@ accessModel:
   - plans
   generated: '2026-07-22'
   method: derived
-position: Consumer
+position: Consuming
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/united-arab-emirates-university.png
 url: https://raw.githubusercontent.com/api-evangelist/united-arab-emirates-university/refs/heads/main/apis.yml
