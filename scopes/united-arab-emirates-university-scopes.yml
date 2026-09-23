@@ -1,0 +1,49 @@
+---
+aid: united-arab-emirates-university
+name: United Arab Emirates University — OAuth 2.0 / OpenID Connect Scopes
+generated: '2026-08-30'
+method: probed
+source: https://eisprod.uaeu.ac.ae/oauth2/oidcdiscovery/.well-known/openid-configuration
+x-operator: institution
+description: >-
+  Scopes advertised by the UAEU enterprise identity service (eisprod.uaeu.ac.ae)
+  in its OpenID Connect discovery document. Read verbatim from the live
+  scopes_supported array on 2026-08-30; none of these are inferred. The
+  registry.* scopes are WSO2 Identity Server registry scopes, not a
+  UAEU-authored API scope vocabulary — UAEU publishes no scoped public API.
+scopes:
+  - name: openid
+    standard: openid-connect
+    description: Required to obtain an ID token from the UAEU identity service.
+  - name: profile
+    standard: openid-connect
+    description: Basic profile claims — name, family_name, given_name, preferred_username, picture, locale, updated_at.
+  - name: email
+    standard: openid-connect
+    description: email and email_verified claims.
+  - name: phone
+    standard: openid-connect
+    description: phone_number and phone_number_verified claims.
+  - name: address
+    standard: openid-connect
+    description: Structured address claim — street_address, locality, region, postal_code, country.
+  - name: registry.user
+    standard: none
+    description: WSO2 Identity Server registry scope — user-level registry access.
+  - name: registry.author
+    standard: none
+    description: WSO2 Identity Server registry scope — authoring access.
+  - name: registry.link
+    standard: none
+    description: WSO2 Identity Server registry scope — symbolic link operations.
+  - name: registry.mount
+    standard: none
+    description: WSO2 Identity Server registry scope — mount operations.
+  - name: registry.realpath
+    standard: none
+    description: WSO2 Identity Server registry scope — real path resolution.
+claims_supported_count: 29
+coverage_note: >-
+  This is the complete advertised scope set. UAEU publishes no API-product scope
+  vocabulary because it publishes no API product; these scopes govern access to
+  its internal SSO, not to institutional data.

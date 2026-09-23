@@ -1,0 +1,91 @@
+---
+aid: united-arab-emirates-university
+name: United Arab Emirates University — Authentication
+generated: '2026-08-30'
+method: probed
+source: https://eisprod.uaeu.ac.ae/oauth2/oidcdiscovery/.well-known/openid-configuration
+x-operator: institution
+operator_evidence: >-
+  eisprod.uaeu.ac.ae resolves under the institution's own registrable domain
+  uaeu.ac.ae and presents a GoDaddy-issued wildcard certificate for
+  CN=*.uaeu.ac.ae (SAN *.uaeu.ac.ae, uaeu.ac.ae). The SAML 2.0 EntityDescriptor
+  carries entityID "eisprod.uaeu.ac.ae". No vendor host, contact domain or
+  service mark appears in any of the three discovery documents. The underlying
+  product is WSO2 Identity Server, but the deployment, the domain, the
+  certificate and the identity data are the university's.
+description: >-
+  United Arab Emirates University operates its own enterprise identity service
+  at eisprod.uaeu.ac.ae. It is the single sign-on point for university
+  applications — Banner Self-Service at ssb.uaeu.ac.ae redirects into it — and
+  it publishes three unauthenticated, standards-mandated discovery documents.
+  This is the only machine-readable surface UAEU itself operates; it is not an
+  API product and there is no developer program behind it.
+mechanisms:
+  - type: openid-connect
+    status: live
+    discovery: https://eisprod.uaeu.ac.ae/oauth2/oidcdiscovery/.well-known/openid-configuration
+    http_status: 200
+    content_type: application/json
+    issuer: https://eisprod.uaeu.ac.ae:9443/oauth2endpoints/token
+    endpoints:
+      authorization: https://eisprod.uaeu.ac.ae:443/oauth2/authorize
+      token: https://eisprod.uaeu.ac.ae:443/oauth2/token
+      userinfo: https://eisprod.uaeu.ac.ae:443/oauth2/userinfo
+      introspection: https://eisprod.uaeu.ac.ae:443/oauth2/introspect
+      revocation: https://eisprod.uaeu.ac.ae:443/oauth2/revoke
+      end_session: https://eisprod.uaeu.ac.ae:443/oidc/logout
+      jwks: https://eisprod.uaeu.ac.ae:443/oauth2/jwks
+      registration: https://eisprod.uaeu.ac.ae:443/api/identity/oauth2/dcr/v1.1/register
+    grant_types:
+      - authorization_code
+      - client_credentials
+      - password
+      - refresh_token
+      - urn:ietf:params:oauth:grant-type:device_code
+      - urn:ietf:params:oauth:grant-type:jwt-bearer
+      - urn:ietf:params:oauth:grant-type:saml2-bearer
+      - urn:ietf:params:oauth:grant-type:uma-ticket
+    pkce: [ S256, plain ]
+    id_token_signing: [ RS256 ]
+    subject_types: [ pairwise ]
+    notes: >-
+      Dynamic client registration (RFC 7591) is advertised at the DCR endpoint
+      but was not exercised. The discovery document is readable without
+      credentials; every operational endpoint behind it requires a registered
+      client.
+  - type: saml2
+    status: live
+    metadata: https://eisprod.uaeu.ac.ae/identity/metadata/saml2
+    http_status: 200
+    content_type: application/xml
+    entity_id: eisprod.uaeu.ac.ae
+    role: IDPSSODescriptor
+    protocol_support: urn:oasis:names:tc:SAML:2.0:protocol
+    want_authn_requests_signed: false
+    notes: >-
+      Institution-operated SAML 2.0 identity provider metadata. This is an
+      IdP metadata document, NOT an eduGAIN or InCommon federation entry — no
+      evidence of UAEU participation in a multilateral R&E federation was found,
+      and none is claimed here.
+  - type: scim2
+    status: partial
+    service_provider_config: https://eisprod.uaeu.ac.ae/scim2/ServiceProviderConfig
+    http_status: 200
+    content_type: application/scim+json
+    readable_without_auth:
+      - https://eisprod.uaeu.ac.ae/scim2/ServiceProviderConfig
+      - https://eisprod.uaeu.ac.ae/scim2/ResourceTypes
+    auth_required:
+      - https://eisprod.uaeu.ac.ae/scim2/Schemas
+      - https://eisprod.uaeu.ac.ae/scim2/Users
+    authentication_schemes: [ oauthbearertoken, httpbasic ]
+    notes: >-
+      SCIM 2.0 provisioning surface. ServiceProviderConfig and ResourceTypes
+      return 200 unauthenticated; Schemas returns 401. documentationUri in the
+      served config is the WSO2 product default (example.com), not a UAEU
+      document.
+not_found:
+  - what: developer portal / API key self-service
+    evidence: no host found under uaeu.ac.ae; no reference in sitemap.xml
+  - what: OAuth application registration for third parties
+    evidence: DCR endpoint advertised but no public onboarding documentation

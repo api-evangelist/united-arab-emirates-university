@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="eisprod.uaeu.ac.ae"><IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" validUntil="2026-08-30T21:54:42.681Z"><KeyDescriptor use="signing"><KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"><X509Data><X509Certificate>MIIGizCCBXOgAwIBAgIJANFwBtQiYdrNMA0GCSqGSIb3DQEBCwUAMIG0MQswCQYDVQQGEwJVUzEQ
+MA4GA1UECBMHQXJpem9uYTETMBEGA1UEBxMKU2NvdHRzZGFsZTEaMBgGA1UEChMRR29EYWRkeS5j
+b20sIEluYy4xLTArBgNVBAsTJGh0dHA6Ly9jZXJ0cy5nb2RhZGR5LmNvbS9yZXBvc2l0b3J5LzEz
+MDEGA1UEAxMqR28gRGFkZHkgU2VjdXJlIENlcnRpZmljYXRlIEF1dGhvcml0eSAtIEcyMB4XDTI1
+MDkwODExMDUwMFoXDTI2MDkyMTEyNDkwM1owFzEVMBMGA1UEAwwMKi51YWV1LmFjLmFlMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsIuuOHOcvovPIDSXS2sWivbPjdgk4ubdWRPacwyg
+TjL74z0hJcWOX4Zd3xHey4ATrm/gYGV8fPuM+oqvOOl9j4VVP8/ImkWNZbfFDa8a8+qmmEc8eiHu
+D+zQns77aCShhMxdp+zVKd6DMz/Hn5FtgYSlJQroMTiYHGaJbUeiO+pU5KBpzK+hJ+Zw0trdhyGn
+SDqxbdePJpl7eaBHLNF/2ZUzIng6p4w4ON+MvtM4c3cC8leSDP3UlynUq6W6krqYR/XU0Y5KINlo
+pJ/7LXkHNB/AzJNNVrAt/9TeIoQx0gNFTB/GjnfOq2/cCxhKK3Y0+vhcnHkYtnFVMZPvZCZK+wID
+AQABo4IDOjCCAzYwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+DgYDVR0PAQH/BAQDAgWgMDkGA1UdHwQyMDAwLqAsoCqGKGh0dHA6Ly9jcmwuZ29kYWRkeS5jb20v
+Z2RpZzJzMS02MTkzMC5jcmwwXQYDVR0gBFYwVDAIBgZngQwBAgEwSAYLYIZIAYb9bQEHFwEwOTA3
+BggrBgEFBQcCARYraHR0cDovL2NlcnRpZmljYXRlcy5nb2RhZGR5LmNvbS9yZXBvc2l0b3J5LzB2
+BggrBgEFBQcBAQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmdvZGFkZHkuY29tLzBABggr
+BgEFBQcwAoY0aHR0cDovL2NlcnRpZmljYXRlcy5nb2RhZGR5LmNvbS9yZXBvc2l0b3J5L2dkaWcy
+LmNydDAfBgNVHSMEGDAWgBRAwr0njsw0gzCiM9f7bLPwtCyAzjAjBgNVHREEHDAaggwqLnVhZXUu
+YWMuYWWCCnVhZXUuYWMuYWUwHQYDVR0OBBYEFOVqRFAyin3l/UGWZvNEWfPuu/yWMIIBfgYKKwYB
+BAHWeQIEAgSCAW4EggFqAWgAdgDXbX0Q0af1d8LH6V/XAL/5gskzWmXh0LMBcxfAyMVpdwAAAZkp
+ACrmAAAEAwBHMEUCIQDEPh47qcuMfC5yDPeJ2jVUGWQKKY2Ys32tu+LuHGmdPAIgSAqj2rLKLl6H
+O7/Wnqbvjj7bFqHCyq7Ov/LsKVafcUQAdgDCMX5XRRmjRe5/ON6ykEHrx8IhWiK/f9W1rXaa2Q5S
+zQAAAZkpACwMAAAEAwBHMEUCIFGoVW892e2Ee6a+gI/S0h5YHLNjlgqdEa5x7R8u7E8KAiEA/4j4
+cwYi4VW0qn0PNHNFO1t/2fiIwv3wol3qWFQAFJ0AdgCsqzBwbOvshDH0E9L0kV8RHkIkQ7HypoxP
+PCs7px4CwwAAAZkpAC3yAAAEAwBHMEUCIQDwrJqcEgTZtB6wgHUMo6+nBNb73QTMzgEaJtuBjSFQ
+/AIgF8QTS5nV3P0dVG423JkD3tn3pCxJprA/kCGQAirGdMYwDQYJKoZIhvcNAQELBQADggEBAKCn
+eXWuvHY/RJcx9NXawr5oDlB/eojcNgktVymDx0t+RHUp3zJ4NAzCECWHSqQ2dGaOI9n+Aq2Aw/fY
+noPuMAo37mQFC86Cj5DSHfAiCTsGLvnV3Q7IiQ81BI7jbmqMsLc7NWC/JGVbyOArMY/gUgeo53+K
+7iY1KXZdtPhGwj9zaNgrCz5ZJk9Zuk3y5k25aNPlIzZGICATUZSpJiuXVZOXiTrFosSWQhd9SHXL
+YdccmtRhs/cSlF8e/eqzukXbfxLZnfweZ8p/AdLNxZBzPs/uFlYDpaXaw/5zzFILMkcjukqJe1OT
+gP1mP7Yvgo9dB8whwOrZdcKkZYkzrGqg0Eg=</X509Certificate></X509Data></KeyInfo></KeyDescriptor><ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://eisprod.uaeu.ac.ae:443/samlartresolve" index="1"/><SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://eisprod.uaeu.ac.ae/samlsso" ResponseLocation="https://eisprod.uaeu.ac.ae/samlsso"/><SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://eisprod.uaeu.ac.ae/samlsso" ResponseLocation="https://eisprod.uaeu.ac.ae/samlsso"/><SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://eisprod.uaeu.ac.ae/samlsso" ResponseLocation="https://eisprod.uaeu.ac.ae/samlsso"/><SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://eisprod.uaeu.ac.ae/samlsso"/><SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://eisprod.uaeu.ac.ae/samlsso"/><SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://eisprod.uaeu.ac.ae:9443/samlsso"/><SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://eisprod.uaeu.ac.ae:9443/samlsso"/></IDPSSODescriptor></EntityDescriptor>

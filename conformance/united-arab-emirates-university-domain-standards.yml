@@ -1,0 +1,109 @@
+---
+aid: united-arab-emirates-university
+name: United Arab Emirates University — Education Regime Domain Standard Conformance
+generated: '2026-08-30'
+method: probed
+source: live probe of institution and registry surfaces, 2026-08-30
+regime: education
+description: >-
+  Conformance evidence against the Kin Score `education` regime standards[]
+  (scim, lti, oneroster, ed-fi, caliper, qti, oai-pmh, shibboleth, saml, orcid,
+  datacite, crossref). Every conformant entry below points at a document or
+  registry record that was fetched and read on 2026-08-30, with the HTTP status
+  recorded. Each carries an x-operator, because for a university the standard
+  being satisfied and the party satisfying it are frequently different.
+  Reward-only: standards with no evidence are listed under not_found and are
+  not claimed.
+conformant:
+  - standard: saml
+    version: '2.0'
+    x-operator: institution
+    evidence_url: https://eisprod.uaeu.ac.ae/identity/metadata/saml2
+    http_status: 200
+    content_type: application/xml
+    location: EntityDescriptor/IDPSSODescriptor, entityID "eisprod.uaeu.ac.ae"
+    detail: >-
+      UAEU publishes a live SAML 2.0 identity provider metadata document from
+      its own host, signed with a certificate issued to *.uaeu.ac.ae. Protocol
+      support enumeration is urn:oasis:names:tc:SAML:2.0:protocol. This is an
+      institutional IdP metadata document, not a federation registration.
+    artifact: authentication/united-arab-emirates-university-saml2-idp-metadata.xml
+  - standard: scim
+    version: '2.0'
+    x-operator: institution
+    evidence_url: https://eisprod.uaeu.ac.ae/scim2/ServiceProviderConfig
+    http_status: 200
+    content_type: application/scim+json
+    location: schemas[] = urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig
+    detail: >-
+      SCIM 2.0 ServiceProviderConfig served unauthenticated, declaring patch,
+      filter (maxResults 200) and bulk (1MB / 1000 ops) support, with
+      oauthbearertoken and httpbasic authentication schemes. /scim2/ResourceTypes
+      also returns 200; /scim2/Schemas and /scim2/Users return 401.
+    artifact: conformance/united-arab-emirates-university-scim2-service-provider-config.json
+  - standard: oai-pmh
+    version: '2.0'
+    x-operator: tenant
+    evidence_url: https://scholarworks.uaeu.ac.ae/do/oai/?verb=Identify
+    http_status: 200
+    content_type: text/xml
+    location: OAI-PMH/Identify, repositoryName "Scholarworks@UAEU"
+    detail: >-
+      Scholarworks@UAEU answers Identify, ListMetadataFormats and ListSets with
+      valid OAI-PMH 2.0. repositoryIdentifier scholarworks.uaeu.ac.ae,
+      earliestDatestamp 2000-01-19, granularity YYYY-MM-DDThh:mm:ssZ, five
+      metadata prefixes including oai_dc and qualified-dublin-core.
+      OPERATOR IS TENANT, NOT INSTITUTION — scholarworks.uaeu.ac.ae is a CNAME
+      to dcuaeu.bepress.com and the Identify response gives adminEmail
+      dc-support@elsevier.com. The repository, its content and its DOIs are
+      UAEU's; the OAI-PMH implementation is bepress Digital Commons (Elsevier).
+  - standard: datacite
+    x-operator: institution
+    evidence_url: https://api.datacite.org/providers/miwj
+    http_status: 200
+    content_type: application/vnd.api+json
+    location: data.attributes — symbol MIWJ, rorId https://ror.org/01km6p862
+    detail: >-
+      United Arab Emirates University holds a DataCite provider account
+      (symbol MIWJ, memberType consortium_organization, organizationType
+      academicInstitution, country AE, created 2026-02-17), linked to its own
+      ROR record. One repository is registered under it — miwj.klmvdh,
+      "Scholarworks@UAEU". The DataCite membership is the institution's even
+      though the repository platform is a vendor's.
+  - standard: crossref
+    x-operator: institution
+    evidence_url: https://api.crossref.org/members/22532
+    http_status: 200
+    content_type: application/json
+    location: message.prefixes = ["10.36771"], message.counts.total-dois = 273
+    detail: >-
+      Crossref member 22532, "United Arab Emirates University", Al-Ain, Abu
+      Dhabi. DOI prefix 10.36771 with 273 deposited DOIs (181 backfile, 92
+      current). Two further Crossref member records exist for UAEU units —
+      54576 (College of Law) and 4716 (Faculty of Food and Agriculture).
+not_found:
+  - standard: shibboleth
+    detail: >-
+      UAEU satisfies SAML 2.0 with WSO2 Identity Server, not with Shibboleth
+      IdP/SP software. No shibboleth2.xml, no /Shibboleth.sso path, and no
+      eduGAIN or InCommon entity for uaeu.ac.ae was found. SAML conformance is
+      recorded above; shibboleth specifically is not claimed.
+  - standard: lti
+    detail: >-
+      UAEU's LMS is a Blackboard tenant (elearning.uaeu.ac.ae redirects to
+      uaeu.blackboard.com). Blackboard is LTI-capable, but no UAEU-published
+      LTI tool registration, platform configuration or JWKS was found, and the
+      conformance would be Anthology's rather than the institution's.
+  - standard: orcid
+    detail: >-
+      No UAEU-operated ORCID integration surface found. The Elsevier Pure
+      deployment at research.uaeu.ac.ae carries ORCID iDs on profile pages, but
+      that integration is Pure's, not UAEU's.
+  - standard: oneroster
+    detail: No evidence found on any uaeu.ac.ae host or in sitemap.xml.
+  - standard: ed-fi
+    detail: No evidence found. Ed-Fi is a US K-12 standard with no UAE deployment signal.
+  - standard: caliper
+    detail: No evidence found on any uaeu.ac.ae host.
+  - standard: qti
+    detail: No evidence found on any uaeu.ac.ae host.
