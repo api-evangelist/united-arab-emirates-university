@@ -1,4 +1,4 @@
-# United Arab Emirates University (united-arab-emirates-university)
+# United Arab Emirates University
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,50 +64,121 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-United Arab Emirates University (UAEU) is a public research university in Al Ain, United Arab Emirates, ranked #262 in the QS World University Rankings 2025. This repository catalogs UAEU's public, machine-readable developer/API footprint as an APIs.json provider profile. UAEU's footprint is research- and open-data-oriented: the UAEU Library runs the Scholarworks@UAEU institutional repository with an OAI-PMH endpoint, and UAEU publishes open datasets via the UAE national CKAN open data portal. No self-service developer portal was found.
+United Arab Emirates University (UAEU) is the UAE's national public research university, founded 1976 in Al Ain, Abu Dhabi. Its machine-readable footprint is small, and almost all of what appears under its name is a vendor's contract running on a UAEU-branded host. Exactly one surface is institution-operated: the UAEU enterprise identity service at eisprod.uaeu.ac.ae, a WSO2 Identity Server deployment on the university's own domain and certificate, which serves unauthenticated OpenID Connect discovery, SAML 2.0 IdP metadata and a SCIM 2.0 ServiceProviderConfig. Everything else is a tenancy. Scholarworks@UAEU (scholarworks.uaeu.ac.ae) answers OAI-PMH 2.0 but CNAMEs to dcuaeu.bepress.com and reports adminEmail dc-support@elsevier.com — bepress Digital Commons. research.uaeu.ac.ae CNAMEs to uaeu.elsevierpure.com and serves a complete 827-path Elsevier "Pure API" OpenAPI at /ws/api/openapi.json; that contract is Elsevier's and is deliberately NOT saved in this repository. The LMS is a Blackboard tenant, library discovery is OCLC WorldCat, and UAEU's open data is published as an organization account on the UAE federal portal rather than on its own infrastructure. UAEU does hold its own DataCite provider account (MIWJ) and Crossref membership (prefix 10.36771). There is no public developer portal, no self-service API program, no UAEU-authored OpenAPI, and no agent surface — every well-known path probed returns the site's soft-404 page.
 
-- APIs.json: https://raw.githubusercontent.com/api-evangelist/united-arab-emirates-university/refs/heads/main/apis.yml
-- Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=united-arab-emirates-university-api-evangelist&utm_content=repo
+**Areas:** University · Higher Education · Education · United Arab Emirates · Middle East · Public Research University · Identity Federation · Research Repository · Open Data · OAI-PMH · SCIM · SAML
 
-## Type
+## United Arab Emirates University on APIs.io
 
-- Index / Consumer / 3rd-Party
+Everything profiled for United Arab Emirates University is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/united-arab-emirates-university/](https://apis.io/providers/united-arab-emirates-university/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-Education, Higher Education, University, Research, Open Data, Institutional Repository, OAI-PMH, CKAN, United Arab Emirates, Middle East
+- [UAEU Enterprise Identity Service (OIDC / SAML 2.0 / SCIM 2.0)](https://apis.io/apis/united-arab-emirates-university/uaeu-identity-service/) — The university's own single sign-on service, running on UAEU's registrable domain under a certificate issued to *.uaeu.ac.ae. It is the login point for UAEU…
+- [Scholarworks@UAEU OAI-PMH Repository Endpoint](https://apis.io/apis/united-arab-emirates-university/scholarworks-oai-pmh/) — OAI-PMH 2.0 metadata harvesting endpoint for Scholarworks@UAEU, the university's open-access institutional repository. Verified live returning valid OAI-PMH…
+- [UAEU Research Portal (Elsevier Pure) — tenant deployment](https://apis.io/apis/united-arab-emirates-university/pure-research-portal/) — UAEU's research information system and public research portal, at research.uaeu.ac.ae, which CNAMEs to uaeu.elsevierpure.com. The deployment serves a…
+- [UAEU Open Data on the UAE Federal Open Data Portal (CKAN)](https://apis.io/apis/united-arab-emirates-university/fcsc-open-data/) — UAEU publishes open datasets as an organization account on the UAE federal open data portal operated by the Federal Competitiveness and Statistics Centre,…
 
-## APIs
+### Published properties
 
-- **Scholarworks@UAEU OAI-PMH Repository API** — OAI-PMH 2.0 metadata harvesting endpoint for the university's open-access institutional repository (bepress Digital Commons). Verified live. Docs: https://scholarworks.uaeu.ac.ae/about.html — Base: https://scholarworks.uaeu.ac.ae/do/oai/
-- **UAEU Open Data on UAE National Portal (CKAN)** — UAEU datasets published on the FCSC national open data portal, which exposes a CKAN Action API (Cloudflare-gated for scripts). Docs: https://opendata.fcsc.gov.ae/@united-arab-emirates-university-uaeu — Base: https://opendata.fcsc.gov.ae/api/3/action/
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Plans / Rate Limits / FinOps
+#### JSON-LD (1)
 
-- Plans: [plans/united-arab-emirates-university-plans-pricing.yml](plans/united-arab-emirates-university-plans-pricing.yml)
-- Rate Limits: [rate-limits/united-arab-emirates-university-rate-limits.yml](rate-limits/united-arab-emirates-university-rate-limits.yml)
-- FinOps: [finops/united-arab-emirates-university-finops.yml](finops/united-arab-emirates-university-finops.yml)
+Linked-data contexts for the provider's vocabulary.
 
-## Timestamps
+- [United Arab Emirates University Context](https://apis.io/jsonld/united-arab-emirates-university/united-arab-emirates-university-context/)
 
-- Created: 2026-06-03
-- Modified: 2026-06-03
+#### Security (2)
 
-## Common Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- Website: https://www.uaeu.ac.ae/en/
-- GitHub: https://github.com/uitsws (UAEU-DOIT / Division of IT; zero public repos)
-- LinkedIn: https://www.linkedin.com/school/united-arab-emirates-university/
-- Library: https://www.uaeu.ac.ae/en/library/
-- Research: https://research.uaeu.ac.ae/
+- [United Arab Emirates University Authentication](https://apis.io/security/united-arab-emirates-university/united-arab-emirates-university-authentication/)
+- [United Arab Emirates University Domain Security](https://apis.io/security/united-arab-emirates-university/united-arab-emirates-university-domain-security/)
 
-## Notes
+#### OAuth scopes (1)
 
-- All cataloged endpoints were probed directly. The Scholarworks OAI-PMH endpoint returned a valid OAI-PMH 2.0 `Identify` response (HTTP 200).
-- The FCSC CKAN Action API exists and is documented, but scripted requests return HTTP 403 due to Cloudflare bot mitigation; a browser session or API arrangement may be required.
-- The UAEU Division of IT GitHub org (uitsws) exists but currently has no public repositories.
-- No self-service developer portal, documented student-information / course-catalog / timetable API, or public mobile-app backend was found. No endpoints were fabricated.
+The permissions the API asks for.
 
-## Maintainers
+- [United Arab Emirates University Scopes](https://apis.io/scopes/united-arab-emirates-university/united-arab-emirates-university-scopes/)
 
-- Kin Lane — kin@apievangelist.com
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [United Arab Emirates University Plans Pricing](https://apis.io/plans/united-arab-emirates-university/united-arab-emirates-university-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [United Arab Emirates University Rate Limits](https://apis.io/rate-limits/united-arab-emirates-university/united-arab-emirates-university-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [United Arab Emirates University Finops](https://apis.io/finops/united-arab-emirates-university/united-arab-emirates-university-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.uaeu.ac.ae/en/)
+- [Blog](https://www.uaeu.ac.ae/en/news/)
+- [Terms of service](https://www.uaeu.ac.ae/en/website/terms_of_use.shtml)
+- [Privacy policy](https://www.uaeu.ac.ae/en/website/privacy_policy.shtml)
+- [GitHub](https://github.com/uitsws)
+
+## API Evangelist rating
+
+**Kin Score 25.6** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 14.3 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 26.3 |
+
+**Agent readiness 3.1** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 34.3** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/united-arab-emirates-university/](https://apis.io/providers/united-arab-emirates-university/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for United Arab Emirates University: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/united-arab-emirates-university/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
